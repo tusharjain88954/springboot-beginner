@@ -91,7 +91,6 @@ public class UserServiceImpl implements UserService {
 
 		UserDto returnValue = new UserDto();
 		BeanUtils.copyProperties(userEntity, returnValue);
- 
 		return returnValue;
 	}
 
@@ -104,7 +103,7 @@ public class UserServiceImpl implements UserService {
 			throw new UsernameNotFoundException("User with ID: " + userId + " not found");
 
 		BeanUtils.copyProperties(userEntity, returnValue);
-
+		UserEntity userByFullName = userRepository.findByFullName("babu", "bhaiya");
 		return returnValue;
 	}
 
